@@ -1,0 +1,66 @@
+<!-- <ion-header> -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+<!-- </ion-header> -->
+
+<ion-content id="appCapsule">
+  <div class="header-large-title">
+    <h1 class="title">Suggestions</h1>
+    <!-- <h4 class="subtitle">Please fill the form to give your valuable suggestions.</h4> -->
+  </div>
+
+  <div class="section full mt-2">
+    <div class="section-title">Please fill the form to give your valuable suggestions.</div>
+    <div class="wide-block pt-2 pb-2">
+        <form [formGroup]="suggestion" (ngSubmit)="submit()">
+            <!-- <div class="form-group boxed">
+                <div class="input-wrapper">
+                    <input type="text" class="form-control" id="name5" placeholder="Name">
+                    <i class="clear-input">
+                        <ion-icon name="close-circle"></ion-icon>
+                    </i>
+                </div>
+            </div>
+
+            <div class="form-group boxed">
+                <div class="input-wrapper">
+                    <input type="email" class="form-control" id="email5" placeholder="Email">
+                    <i class="clear-input">
+                        <ion-icon name="close-circle"></ion-icon>
+                    </i>
+                </div>
+            </div> -->
+
+            <div class="form-group boxed">
+                <div class="input-wrapper">
+                    <textarea maxlength="500" rows="7" class="form-control" formControlName="suggestion" placeholder="Suggestions..." required></textarea>
+                    <div class="input-info" style="color: tomato;"  *ngIf="suggestion.controls['suggestion'].errors?.required && (suggestion.controls['suggestion'].dirty ||suggestion.controls['suggestion'].touched)" class="invalid">
+                      * Suggestion Field is Required!
+                    </div>
+                    <div class="input-info" style="color: tomato;"  *ngIf="suggestion.controls['suggestion'].errors?.minlength" class="invalid">
+                      * Suggestion field should contain atleast 5 Characters.
+                    </div>
+                    <div class="input-info" style="color: tomato;"  *ngIf="suggestion.controls['suggestion'].errors?.maxlength" class="invalid">
+                      * Suggestion field should not be more than 500 Characters.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-1">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!suggestion.valid">
+                    Send
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+    <!-- <div class="content-footer mt-05">* This form is only html based. Not included any mail script.</div> -->
+
+  </div>
+
+</ion-content>

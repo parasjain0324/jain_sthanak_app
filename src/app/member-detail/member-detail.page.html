@@ -1,0 +1,71 @@
+<!-- <ion-header> -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+      <!-- <ion-menu-button></ion-menu-button> -->
+    </ion-buttons>
+    <ion-title>  </ion-title>
+  </ion-toolbar>
+<!-- </ion-header> -->
+
+<ion-content  id="appCapsule">
+  <div class="header-large-title">
+    <h1 class="title">Member Detail</h1>
+    <h4 class="subtitle"></h4>
+  </div>
+
+  <div class="section mt-3 mb-3" *ngFor="let results of result">
+    <div class="card" >
+      <div class="swiper-container">
+        <!-- <ion-slides class="swiper-wrapper" [options]="slideOpts"> -->
+          <!-- <ion-slide class="swiper-slide" *ngFor="let results2 of result2"> -->
+            <!-- <div class="swiper-zoom-container"> -->
+              <div *ngIf="results.photo != ''">
+                <img src="{{url}}admin/images/image_sthanakmember/{{results.photo}}"/>
+              </div>
+        
+              <div *ngIf="results.photo == ''">
+                <img src="{{url}}admin/images/image_sthanakmember/default.png"/>
+              </div>
+              <!-- <img src="{{url}}upload_sthanak/{{results2.name}}"> -->
+            <!-- </div> -->
+          <!-- </ion-slide> -->
+        <!-- </ion-slides> -->
+      </div>
+      <div class="card-body">
+          <h6 class="card-subtitle">{{results.post}}</h6>
+          <h5 class="card-title">{{results.name}}</h5>
+          <span class="card-text">
+            <p *ngIf="results.mobile1 != ''">
+              <span style="font-weight: bold">Mobile 1:  </span><a href="tel:{{results.mobile1}}">{{results.mobile1}}</a>
+            </p>
+            <p *ngIf="results.mobile2 != ''">
+              <span style="font-weight: bold">Mobile 2:  </span><a href="tel:{{results.mobile2}}">{{results.mobile2}}</a>
+            </p>
+            <p *ngIf="results.whatsappno != ''">
+              <span style="font-weight: bold">Whatsapp No.:  </span><a target="_blank" rel="noopener noreferrer" href="https://wa.me/91{{results.whatsappno}}">{{results.whatsappno}}</a>
+            </p>
+            <p *ngIf="results.residence_no != ''">
+              <span style="font-weight: bold">Residence No.:  </span><a href="tel:{{results.residence_no}}">{{results.residence_no}}</a>
+            </p>
+            <p *ngIf="results.office_no != ''">
+              <span style="font-weight: bold">Office No.:  </span><a href="tel:{{results.office_no}}">{{results.office_no}}</a>
+            </p>
+            <p *ngIf="results.emailId != ''">
+              <span style="font-weight: bold">Email Id:  </span><a target="_blank" rel="noopener noreferrer" href="mailto:{{results.emailId}}">{{results.emailId}}</a>
+            </p>
+            <p *ngIf="results.residence_address != ''">
+              <span style="font-weight: bold">Residence Address:  </span>{{results.residence_address}}
+            </p>
+            <p *ngIf="results.office_address != ''">
+              <span style="font-weight: bold">Office Address:  </span>{{results.office_address}}
+            </p>
+          </span>
+          <!-- <button (click)="sthanakDetail(results.sid)" class="btn btn-primary">
+            <ion-icon name="eye-outline"></ion-icon>
+              View
+          </button> -->
+      </div>
+    </div>
+  </div>
+</ion-content>

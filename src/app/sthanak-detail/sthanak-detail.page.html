@@ -1,0 +1,44 @@
+<!-- <ion-header> -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+      <!-- <ion-menu-button></ion-menu-button> -->
+    </ion-buttons>
+    <ion-title>  </ion-title>
+  </ion-toolbar>
+<!-- </ion-header> -->
+
+<ion-content  id="appCapsule">
+  <div class="header-large-title">
+    <h1 class="title">Member List</h1>
+    <h4 class="subtitle"></h4>
+  </div>
+
+  <div class="section mt-3 mb-3">
+    <!-- <div class="card"> -->
+        <ul class="listview image-listview" >
+          <li *ngFor="let results of result" class="form-rounded">
+            <div class="item" (click)="memberDetail(results.id)">
+              <div *ngIf="results.photo != ''">
+                <img src="{{url}}admin/images/image_sthanakmember/{{results.photo}}" alt="Photo" class="image">
+              </div>
+              <div *ngIf="results.photo == ''">
+                <img src="{{url}}admin/images/image_sthanakmember/default.png" alt="Default Image" class="image">
+              </div>
+                <!-- <img src="{{url}}admin/images/image_sthanakmember/default.png" alt="image" class="image"> -->
+                <div class="in">
+                    <div>
+                        <header>{{results.post}}</header>
+                        {{results.name}}
+                        <footer>{{results.mobile1}}</footer>
+                    </div>
+                    <!-- <span class="text-muted">View</span> -->
+                </div>
+              </div>
+          </li>
+        </ul>
+      
+      <br>
+    <!-- </div> -->
+  </div>
+</ion-content>

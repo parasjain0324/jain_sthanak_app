@@ -1,0 +1,103 @@
+<ion-content>
+  <div class="login-form mt-1">
+    <div class="section">
+        <img src="{{url}}appImages/login.png" alt="image" class="form-image">
+    </div>
+    <div class="section mt-1">
+        <h1>Get started</h1>
+        <h4>Fill the form to log in</h4>
+    </div>
+    <div class="section mt-1 mb-5">
+        <form [formGroup]="login" (ngSubmit)="submit()">
+          <!-- <ion-item>
+            <ion-label position="floating" color="primary">Name</ion-label>
+            <ion-input type="text" formControlName="fullName"></ion-input>
+          </ion-item> -->
+          <!-- <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.username">
+              <div class="error-message" *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div> -->
+
+          <!-- <ion-item>
+            <ion-label position="floating" color="primary">City</ion-label>
+            <ion-input type="text" formControlName="city"></ion-input>
+          </ion-item> -->
+          <!-- <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.username">
+              <div class="error-message" *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div> -->
+
+          <!-- <ion-item>
+            <ion-label position="floating" color="primary">Mobile Number</ion-label>
+            <ion-input type="number" formControlName="mobileNumber"></ion-input>
+          </ion-item> -->
+          <!-- <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.username">
+              <div class="error-message" *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">
+                <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+              </div>
+            </ng-container>
+          </div> -->
+      
+            <div class="form-group boxed">
+                <div class="input-wrapper">
+                    <ion-input class="form-control" type="text" formControlName="fullName" required autofocus="true" placeholder="Name"></ion-input>
+                    <div class="input-info" *ngIf="isSubmitted && login.controls.fullName.errors?.required" style="color: tomato;">
+                      * Name is Required!
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group boxed">
+                <div class="input-wrapper">
+                    <ion-input class="form-control" type="text" formControlName="city" required placeholder="City"></ion-input>
+                    <div class="input-info" *ngIf="isSubmitted && login.controls.city.errors?.required" style="color: tomato;">
+                      * City is Required!
+                    </div>
+                </div>
+            </div>
+            <div class="form-group boxed">
+              <div class="input-wrapper">
+                  <ion-input class="form-control" type="number" formControlName="mobileNumber" required minlength="10" maxlength="10" placeholder="Mobile Number"></ion-input>
+                  <div class="input-info" *ngIf="login.controls['mobileNumber'].errors?.pattern" style="color: tomato;">
+                    * Mobile Number should be of 10 digits.
+                  </div>
+                  <div class="input-info" *ngIf="login.controls['mobileNumber'].errors?.required && (login.controls['mobileNumber'].dirty || login.controls['mobileNumber'].touched)" style="color: tomato;">
+                    * Mobile Number is Required!
+                  </div>
+                  <!-- <div class="input-info" *ngIf="login.controls['mobileNumber'].errors?.maxlength" style="color: tomato;">
+                    * Mobile Number should not be more than 10 digits Number.
+                  </div> -->
+              </div>
+            </div>
+
+            <!-- <div class="form-links mt-2">
+                <div>
+                    <a href="page-register.html">Register Now</a>
+                </div>
+                <div><a href="page-forgot-password.html" class="text-muted">Forgot Password?</a></div>
+            </div> -->
+
+            <!-- <div class=" mt-1 text-left">
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customChecka1">
+                  <label class="custom-control-label text-muted" for="customChecka1">I Agree <a
+                          href="javascript:;">Terms & Conditions</a></label>
+                  <div class="input-info">Enter your full name</div>
+              </div>
+          </div> -->
+
+          <!-- <div class="form-button-group"> -->
+            <ion-button type="submit" color="primary" class="submit-btn" expand="block" [disabled]="!login.valid">Send OTP</ion-button>
+          <!-- </div> -->
+
+        </form>
+    </div>
+  </div>
+</ion-content>

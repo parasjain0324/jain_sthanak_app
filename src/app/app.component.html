@@ -1,0 +1,75 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header>🙏Jai Jinendra🙏</ion-list-header>
+          <ion-note>{{name}}</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list id="labels-list">
+          <ion-list-header>Join On</ion-list-header>
+
+          <ion-item lines="none" target="_blank" rel="noopener noreferrer" href="https://t.me/jainsthanak">
+            <ion-icon slot="start" ios="paper-plane-outline" md="paper-plane-sharp"></ion-icon>
+            <ion-label>Telegram</ion-label>
+          </ion-item>
+        </ion-list>
+
+        <!-- <ion-list id="labels-list">
+          <ion-list-header>Labels</ion-list-header>
+
+          <ion-item *ngFor="let label of labels" lines="none">
+            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+            <ion-label>{{ label }}</ion-label>
+          </ion-item>
+        </ion-list> -->
+
+
+
+        <div class="appFooter">
+          <!-- <img src="{{url}}appImages/LOGO.png" alt="icon" class="footer-logo mb-2"> -->
+          <div class="footer-title">
+              Copyright © <a target="_blank" rel="noopener noreferrer" href="https://tttech.net">TT-TECH</a>. All Rights Reserved.
+          </div>
+          <!-- <div>TT-TECH is App Development & Digital Product Company.</div> -->
+          <!-- Great way to start your mobile websites and pwa projects. -->
+
+          <!-- <div class="mt-2">
+              <a href="javascript:;" class="btn btn-icon btn-sm btn-facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+              <a href="javascript:;" class="btn btn-icon btn-sm btn-twitter">
+                  <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+              <a href="javascript:;" class="btn btn-icon btn-sm btn-linkedin">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+              <a href="javascript:;" class="btn btn-icon btn-sm btn-instagram">
+                  <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+              <a href="javascript:;" class="btn btn-icon btn-sm btn-whatsapp">
+                  <ion-icon name="logo-whatsapp"></ion-icon>
+              </a>
+              <a href="#" class="btn btn-icon btn-sm btn-secondary goTop">
+                  <ion-icon name="arrow-up-outline"></ion-icon>
+              </a>
+          </div> -->
+
+      </div>
+
+
+
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+  
+</ion-app>

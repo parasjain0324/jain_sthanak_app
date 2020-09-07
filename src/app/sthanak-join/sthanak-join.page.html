@@ -1,0 +1,137 @@
+<!-- <ion-header> -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+<!-- </ion-header> -->
+
+<ion-content id="appCapsule">
+
+  <div class="header-large-title">
+    <h1 class="title">Join Sthanak</h1>
+    <h4 class="subtitle"></h4>
+  </div>
+
+  <div class="section full mt-2 mb-2">
+    <div class="section-title">Fill the form below to join.</div>
+    <div class="wide-block pt-2 pb-2">
+
+        <form class="needs-validation" [formGroup]="join" (ngSubmit)="join_sthanak()">
+
+            <div class="form-group boxed">
+                <div class="input-wrapper">
+                    <label class="label" for="name">Name</label>
+                    <ion-input type="text" class="form-control" id="name" formControlName="name"></ion-input>
+                    <!-- <div class="valid-feedback">Looks good!</div> -->
+                    <div class="input-info" *ngIf="join.controls['name'].errors?.required && (join.controls['name'].dirty ||join.controls['name'].touched)" style="color: tomato;">
+                      * Please enter your name.
+                    </div>
+                    <div class="input-info" *ngIf="join.controls['name'].errors?.maxlength" style="color: tomato;">
+                      * Max. 100 Characters Only.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group boxed">
+                <div class="input-wrapper">
+                    <label class="label" for="mobile_1">Mobile 1</label>
+                    <ion-input type="number" class="form-control" id="mobile_1" formControlName="mobile_1"></ion-input>
+                    <div class="input-info" *ngIf="join.controls['mobile_1'].errors?.required && (join.controls['mobile_1'].dirty ||join.controls['mobile_1'].touched)" style="color: tomato;">* Required!</div>
+                    <div class="input-info" *ngIf="join.controls['mobile_1'].errors?.pattern"  style="color: tomato;">* Invalid.</div>
+                </div>
+            </div>
+
+            <div class="form-group boxed">
+              <div class="input-wrapper">
+                  <label class="label" for="mobile_2">Mobile 2</label>
+                  <ion-input type="number" class="form-control" id="mobile_2" formControlName="mobile_2"></ion-input>
+                  <div class="input-info" *ngIf="join.controls['mobile_2'].errors?.pattern"  style="color: tomato;">* Invalid.</div>
+              </div>
+          </div>
+
+          <div class="form-group boxed">
+            <div class="input-wrapper">
+                <label class="label" for="whatsapp_no">Whatsapp No.</label>
+                <ion-input type="number" class="form-control" id="whatsapp_no" formControlName="whatsapp_no"></ion-input>
+                <div class="input-info" *ngIf="join.controls['whatsapp_no'].errors?.pattern"  style="color: tomato;">* Invalid.</div>
+            </div>
+        </div>
+
+        <div class="form-group boxed">
+          <div class="input-wrapper">
+              <label class="label" for="residence_no">Residence No.</label>
+              <ion-input type="number" class="form-control" id="residence_no" formControlName="residence_no"></ion-input>
+              <div class="input-info" *ngIf="join.controls['residence_no'].errors?.maxlength"  style="color: tomato;">* Max. 15 Digits.</div>
+          </div>
+      </div>
+
+      <div class="form-group boxed">
+        <div class="input-wrapper">
+            <label class="label" for="office_no">Office No.</label>
+            <ion-input type="number" class="form-control" id="office_no" formControlName="office_no"></ion-input>
+            <div class="input-info" *ngIf="join.controls['office_no'].errors?.maxlength"  style="color: tomato;">* Max. 15 Digits.</div>
+        </div>
+    </div>
+
+    <div class="form-group boxed">
+      <div class="input-wrapper">
+          <label class="label" for="mobile_1">Email Id</label>
+          <ion-input type="email" class="form-control" id="email_id" formControlName="email_id"></ion-input>
+          <div class="input-info" *ngIf="join.controls['email_id'].errors?.maxlength"  style="color: tomato;">* Max. 10 Digits.</div>
+          <div class="input-info" *ngIf="join.controls['email_id'].errors?.pattern"  style="color: tomato;">* Invalid Email.</div>
+      </div>
+  </div>
+
+  <div class="form-group boxed">
+    <div class="input-wrapper">
+        <label class="label" for="residence_address">Residence Address</label>
+        <textarea rows="5" class="form-control" id="residence_address" formControlName="residence_address"></textarea>
+        <div class="input-info" *ngIf="join.controls['residence_address'].errors?.maxlength"  style="color: tomato;">* Max. 10 Digits.</div>
+    </div>
+</div>
+
+<div class="form-group boxed">
+  <div class="input-wrapper">
+      <label class="label" for="office_address">Office Address</label>
+      <textarea rows="5" class="form-control" id="office_address" formControlName="office_address"></textarea>
+      <div class="input-info" *ngIf="join.controls['office_address'].errors?.maxlength"   style="color: tomato;">* Max. 300 Characters.</div>
+  </div>
+</div>
+
+<div class="form-group boxed">
+  <div class="input-wrapper">
+      <label class="label" for="gotra">Gotra</label>
+      <textarea rows="3" class="form-control" id="gotra" formControlName="gotra"></textarea>
+      <div class="input-info" *ngIf="join.controls['gotra'].errors?.maxlength"  style="color: tomato;">* Max. 100 Characters.</div>
+  </div>
+</div>
+
+<div class="form-group boxed">
+  <div class="input-wrapper">
+      <label class="label" for="belong_to">Belong To</label>
+      <textarea rows="3" class="form-control" id="belong_to" formControlName="belong_to"></textarea>
+      <div class="input-info" *ngIf="join.controls['belong_to'].errors?.maxlength"  style="color: tomato;">* Max. 100 Characters.</div>
+  </div>
+</div>
+
+<div class="form-group boxed">
+  <div class="input-wrapper">
+      <label class="label" for="no_family_member">No. of Family Member</label>
+      <textarea rows="3" class="form-control" id="no_family_member" formControlName="no_family_member"></textarea>
+      <div class="input-info" *ngIf="join.controls['no_family_member'].errors?.maxlength"  style="color: tomato;">* Max. 200 Characters.</div>
+  </div>
+</div>
+
+  <div class="mt-2">
+      <button class="btn btn-primary btn-block" type="submit" [disabled]="!join.valid">Submit</button>
+  </div>
+
+</form>
+
+
+    </div>
+  </div>
+
+</ion-content>

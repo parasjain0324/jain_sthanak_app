@@ -1,0 +1,71 @@
+<!-- <ion-header> -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>  </ion-title>
+  </ion-toolbar>
+<!-- </ion-header> -->
+
+<ion-content id="appCapsule">
+  <div class="header-large-title">
+    <h1 class="title">My Sthanak</h1>
+    <h4 class="subtitle">List of all connected Sthanak.</h4>
+  </div>
+
+  
+      <div class="section mt-3 mb-3" *ngIf="result.length != 0">
+        <div class="card" *ngFor="let results of result">
+          <div class="swiper-container">
+            <ion-slides class="swiper-wrapper" [options]="slideOpts">
+              <ion-slide class="swiper-slide" *ngFor="let image of results.sthanakImages">
+                <div class="swiper-zoom-container">
+                  <img src="{{url}}upload_sthanak/{{image.name}}">
+                </div>
+              </ion-slide>
+            </ion-slides>
+          </div>
+          <div class="card-body">
+              <div *ngFor="let result_city of results.city">
+                <h6 class="card-subtitle">{{result_city.cityName}}</h6>
+              </div>
+              <h5 class="card-title">{{results.placename}}</h5>
+              <p class="card-text">
+                  {{results.remarks}}
+              </p>
+              <button (click)="sthanakDetail(results.sid)" class="btn btn-primary">
+                <ion-icon name="eye-outline"></ion-icon>
+                  View
+              </button>
+          </div>
+        </div>
+      </div>
+
+      <!--  -->
+
+      <div class="section mt-3 mb-3" *ngIf="result.length == 0">
+        <div class="card" >
+          <div class="swiper-container">
+            <ion-slides class="swiper-wrapper" [options]="slideOpts">
+              <ion-slide class="swiper-slide" *ngFor="let results2 of result2">
+                <div class="swiper-zoom-container">
+                  <img src="{{url}}upload_sthanak/{{results2.name}}">
+                </div>
+              </ion-slide>
+            </ion-slides>
+          </div>
+          <div class="card-body">
+              <h6 class="card-subtitle"></h6>
+              <h5 class="card-title">You are not registered with any Jain Sthanak</h5>
+              <p class="card-text">
+                  
+              </p>
+              <!-- <button (click)="sthanakDetail(results.sid)" class="btn btn-primary">
+                <ion-icon name="eye-outline"></ion-icon>
+                  View
+              </button> -->
+          </div>
+        </div>
+      </div>
+
+</ion-content>

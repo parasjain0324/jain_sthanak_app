@@ -1,0 +1,31 @@
+<ion-content id="appCapsule">
+<!-- {{dataReceived}} -->
+<div class="section mt-2 mb-5">
+
+  <!-- <div class="section">
+    <h1>Verify Now</h1>
+    <h4>We sent a verification code on your phone</h4>
+  </div> -->
+
+  
+  <div class="section">
+      <img src="{{url}}appImages/otp.png" alt="otp image" class="form-image">
+  </div>
+  <div class="section" style="text-align: center;">
+      <h1>Verify Now</h1>
+      <h4>We sent a verification code on your phone</h4>
+  </div>
+
+  <form [formGroup]="otpcheck" (ngSubmit)="submit()">
+      <div class="form-group boxed">
+          <div class="input-wrapper">
+              <input type="number" class="form-control verify-input" id="smscode" placeholder="••••••" maxlength="6" autofocus="true"  formControlName="otp" required>
+          </div>
+      </div>
+<br><br>
+      <ion-button type="button" color="primary" class="submit-btn" expand="block" (click)="resend()" [disabled]="resendDisable">Resend {{timer}}</ion-button>
+      <ion-button type="submit" color="primary" class="submit-btn" expand="block" [disabled]="!otpcheck.valid">Submit</ion-button>
+
+  </form>
+</div>
+</ion-content>

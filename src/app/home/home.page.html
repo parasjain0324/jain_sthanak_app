@@ -1,0 +1,128 @@
+<!-- <ion-header translucent="true" > -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>  </ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-icon src="https://img.icons8.com/fluent/240/000000/telegram-app.svg"></ion-icon>
+    </ion-buttons> -->
+  </ion-toolbar>
+<!-- </ion-header> -->
+
+<ion-content id="appCapsule">
+  <!-- Heading Section -->
+  <div class="header-large-title">
+    <h1 class="title">Welcome</h1>
+    <h4 class="subtitle">Search for Jain Sthanak</h4>
+  </div>
+
+    <div>
+      <form (submit)='onSubmit()'>
+        <ion-item class="form-rounded">
+          <ion-label>State</ion-label>
+          <ion-select okText="Okay" cancelText="Dismiss" placeholder="Select State" [(ngModel)]="stateName" (ionChange)="getCities()" name="stateName">
+            <ion-select-option *ngFor="let state of result_states" value="{{state.statid}}">{{state.stateName}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item class="form-rounded">
+          <ion-label>City</ion-label>
+          <ion-select okText="Okay" cancelText="Dismiss"  placeholder="Select City" [(ngModel)]="cityName" (ionChange)="onSubmit()" name="cityName">
+            <ion-select-option *ngFor="let city of result_cities" value="{{city.cityid}}">{{city.cityName}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </form>
+    </div>
+    
+    
+    <br>
+      <!-- <div> -->
+  
+        <div class="section mt-3 mb-3">
+          <div class="card" *ngFor="let a of result">
+            <div class="swiper-container">
+              <ion-slides class="swiper-wrapper" [options]="slideOpts">
+                <ion-slide class="swiper-slide" *ngFor="let results of a.sthanakImages">
+                  <div class="swiper-zoom-container">
+                    <img src="{{url}}upload_sthanak/{{results.name}}" >
+                  </div>
+                </ion-slide>
+              </ion-slides>
+            </div>
+              <!-- <img src="{{url}}appImages/defaultSthanak.jpg" class="card-img-top" alt="image"> -->
+              <div class="card-body">
+                  <div *ngFor="let result_city of a.city">
+                    <h6 class="card-subtitle">{{result_city.cityName}}</h6>
+                  </div>
+                  <h5 class="card-title">{{a.placename}}</h5>
+                  <div class="card-text">
+                    <div *ngIf="a.address != ''">
+                      <span style="font-weight: bold;"> Address - </span>{{a.address}}
+                      <br>
+                    </div>
+                    <div *ngIf="a.landmark != ''">
+                      <span style="font-weight: bold;"> Landmark - </span>{{a.landmark}}
+                      <br>
+                    </div>
+                    <div *ngIf="a.nrstation != ''">
+                      <span style="font-weight: bold;"> Railway Station - </span>{{a.nrstation}}
+                      <br>
+                    </div>
+          
+                    <div *ngIf="a.rdistance != ''">
+                      <span style="font-weight: bold;"> Railway Distance - </span>{{a.rdistance}}
+                      <br>
+                    </div>
+                    <div *ngIf="a.nbstation != ''">
+                      <span> Nearest Bus station - </span>{{a.nbstation}}
+                      <br>
+                    </div>
+                    <div *ngIf="a.bdistance != ''">
+                      <span> Bus Distance - </span>{{a.bdistance}}
+                      <br>
+                    </div>
+                  </div>
+                  <br>
+
+                  <div *ngIf="a.sthanakmember != ''">
+                    <div class="listview-title mt-2">Management</div>
+                    <ul class="listview image-listview" >
+                      <li *ngFor="let results of a.sthanakmember" class="form-rounded">
+                        <div class="item" (click)="memberDetail(results.id)">
+                          <div *ngIf="results.photo != ''">
+                            <img src="{{url}}admin/images/image_sthanakmember/{{results.photo}}" alt="Photo" class="image">
+                          </div>
+                          <div *ngIf="results.photo == ''">
+                            <img src="{{url}}admin/images/image_sthanakmember/default.png" alt="Default Image" class="image">
+                          </div>
+                            <!-- <img src="{{url}}admin/images/image_sthanakmember/default.png" alt="image" class="image"> -->
+                            <div class="in">
+                                <div>
+                                    <header>{{results.post}}</header>
+                                    {{results.name}}
+                                    <footer>{{results.mobile1}}</footer>
+                                </div>
+                                <!-- <span class="text-muted">View</span> -->
+                            </div>
+                          </div>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <br>
+                    
+                  <button (click)="join(a.sid)" class="btn btn-primary">
+                      <ion-icon name="log-in-outline"></ion-icon>
+                      Join
+                  </button>
+              </div>
+          </div>
+        </div>
+      <!-- </div> -->
+
+      
+        
+
+  
+</ion-content>
